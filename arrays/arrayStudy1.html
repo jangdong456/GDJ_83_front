@@ -12,20 +12,26 @@
         let ar2 = [];
 
         // Data 있음
-        let ar3 = [1,2,3];
-
-        console.log(ar1.length);
-        console.log(ar2.length);
-        console.log(ar3.length);
+        let ar3 = [1,5,"yvbvjh",6,2,3];
 
         //배열 요소의 접근 (인덱스에 접근)
         //변수명 [index 번호]
-        let j = ar3[1]
-        console.log(j);
+        // let j = ar3[1]
+        // console.log(j);
 
-        j=100;
-        console.log(ar3[1]);
-        
+        // j=100;
+        // console.log(ar3[1]);
+
+        // push : 새로운 요소 추가하고, 새로운 길이 반환
+        ar3.push('a');
+
+        // pop()
+        ar3.pop();
+
+        //오름차순
+        ar3.sort();
+        // 거꾸로 만듬
+        ar3.reverse();
         
         
         for(let i=0; i< ar3.length; i++ ) {

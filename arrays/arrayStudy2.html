@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c {
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="c">
+    <input type="text" class="c">
+    <input type="text" class="c">
+    <button  onclick="info()" id="btn">Click</button>
+
+    <script>
+        // 각각 입력된 것 출력
+        // 가지고와서 출력
+
+        // class는 배열 형태 / Element가 아님 / value이 없음
+        const c = document.getElementsByClassName("c");
+        const btn = document.getElementById("btn");
+
+        function info() {
+            for(let i=0; i<c.length; i++) {              
+                console.log(c[i].value);
+            }
+        }
+
+    </script>
+</body>
+</html>

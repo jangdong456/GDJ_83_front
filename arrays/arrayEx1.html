@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" value="1" name="ch" class="v" id="checkAll">
+    <input type="checkbox" value="1" name="ch" class="v">
+    <input type="checkbox" value="2" name="ch" class="v">
+    <input type="checkbox" value="3" name="ch" class="v">
+    <input type="checkbox" value="4" name="ch" class="v">
+    <button onclick="on()" id="bt" >Click</button>
+</body>
+
+    <script>
+        // 버튼을 누르면 내가 체크 한 값의 체크의 속성값 을 출력하세요
+        const v = document.getElementsByClassName("v");
+        const bt = document.getElementById("bt");
+
+        // function on() {
+        //     for(let i=0; i<v.length; i++) {
+        //         console.log(v[i].value);
+        //     }
+        // }
+        
+        // ==============================
+        
+        // function on() {
+        //     for(let i=0; i<v.length; i++) {
+        //         console.log(v[i].checked);
+        //     }
+        // }
+
+        // v[1].checked= false;
+
+        // 전체 체크 | 해제 만들기
+        const all = document.getElementById("checkAll");
+        
+        function on() {
+            // 체크시 true | 노체크시 false 
+            if(all.checked == true) {
+                for(let i=0; i<v.length; i++) {
+                    v[i].checked = true;
+                }
+            } else {
+                for(let i=0; i<v.length; i++) {
+                    v[i].checked = false;
+                }
+            }
+        }
+        
+    </script>
+</html>
