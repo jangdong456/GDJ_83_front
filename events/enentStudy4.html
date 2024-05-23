@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div id="resut"></div>
+
+    <button id="btn1">Click</button>
+    <!-- <button id="btn2">Button</button> -->
+
+    <button class="b1" title="btn1">BTN1</button>
+    <button class="b1" title="btn2">BTN2</button>
+    <button class="b1" title="btn3">BTN3</button>
+
+    <script>
+        // btn1을 클릭하면 result에 
+
+        const btn1 = document.getElementById("btn1");
+        const btn2 = document.getElementById("btn2");
+        const result = document.getElementById("result");
+
+        const b1 =document.getElementsByClassName("b1");
+
+        //this -> 자기자신
+        for(let i=0; i<b1.length; i++){
+            b1[i].addEventListener("click", function(){
+                console.log(this.title);
+            });
+        }
+
+        btn1.addEventListener("click", function(){
+            result.innerHTML='<button id="btn2">Click</button>';
+        })
+
+        // btn1.addEventListener("click", function(){
+        //     console.log("click");
+        // })
+        
+        // click(); -> 강제실행 
+        // btn2 클릭시 btn1 클릭하게 만든 코드
+        btn2.addEventListener("click", function(){
+            // btn1.click();
+            console.log("test");
+        })
+
+    </script>
+</body>
+</html>

@@ -6,18 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <input  onclick="on()" type="checkbox" value="1" name="ch" class="v" id="checkAll">
-    <input type="checkbox" value="1" name="ch" class="v">
-    <input type="checkbox" value="2" name="ch" class="v">
-    <input type="checkbox" value="3" name="ch" class="v">
-    <input type="checkbox" value="4" name="ch" class="v">
+    <input  onclick="on()" type="checkbox" value="1" name="ch" id="checkAll">
+    <input type="checkbox" value="1" name="ch" class="v" >
+    <input type="checkbox" value="2" name="ch" class="v" >
+    <input type="checkbox" value="3" name="ch" class="v" >
+    <input type="checkbox" value="4" name="ch" class="v" >
     <button onclick="on()" id="bt" >Click</button>
 </body>
 
     <script>
         // 버튼을 누르면 내가 체크 한 값의 체크의 속성값 을 출력하세요
-        const v = document.getElementsByClassName("v");
-        const bt = document.getElementById("bt");
+        // const v = document.getElementsByClassName("v");
+        // const bt = document.getElementById("bt");
 
         // function on() {
         //     for(let i=0; i<v.length; i++) {
@@ -36,7 +36,7 @@
         // v[1].checked= false;
 
         // 전체 체크 | 해제 만들기
-        const all = document.getElementById("checkAll");
+        // const all = document.getElementById("checkAll");
         
         // function on() {
         //     // 체크시 true | 노체크시 false 
@@ -64,14 +64,54 @@
         //         }
         //     } 
         // }
-
+        
         // 강사님 풀이2
+        // function on(){
+            //     for(let i=0; i<v.length; i++) {
+        //         v[i].checked = all.checked;
+        //     };
+        // };
+        
+        // =================================================================================================================================================================
+        //문제 
+        // 체크박스 1나가 해제되면 전체박스 해제 | 2~5번까지 다 체크되면 전체체크 버튼 눌려지기
+        // 4개를 다 검사해야 checked가 되어있는지 확인해야함
+        // 1개라도 해제되어있으면 첫번째 체크박스 해제
+        // 2~5번가지 다 체크 되어있으면 첫번쟤 체크박스 체크 되게 하기
+        
+        // v[0].addEventListener("click", function(){
+            //     console.log("test");
+            // })
+            
+            // 속성값을 변경해줘야함 checked
+            // 1~5번 
+            // 만약 2~5번 중 1개라도 해체되어있으면 체크박스 해제
+            
+            //checked true |  false 
+
+            const bt = document.getElementById("bt");
+        const v = document.getElementsByClassName("v");
+        const all = document.getElementById("checkAll");
+
+
         function on(){
             for(let i=0; i<v.length; i++) {
                 v[i].checked = all.checked;
             };
         };
-            
+
+        // 1~4번 클릭시 for문을 통해서 checked가 되어있는지 검사해야함 1개라도 클릭이 안되어 있으면 checkall은 false
+        for(let i=0; i<v.length; i++) {
+            v[i].addEventListener("click", function() {
+                if(v[i].checked) {
+                    all.checked;
+                    console.log("if문");
+                }else {
+                    all.checked;
+                    console.log("바깥");
+                }
+            });
+        };
 
     </script>
 </html>

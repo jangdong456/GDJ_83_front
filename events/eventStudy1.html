@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <button id="btn">Click</button>
+    <button id="btn2">Click</button>
+    <button id="btn3">Click</button>
+
+    <script>
+        const btn = document.getElementById("btn");
+        const btn2 = document.getElementById("btn2");
+        const btn3 = document.getElementById("btn3");
+
+        // 이벤트 등록하는 방법 총 3가지
+
+        // 메소드 onclick -> 클릭 했을 때
+        // 콜백함수 : 이벤트가 발생했을 때 실행해야 하는것 
+        // 1.
+        btn.onclick = function() {
+            console.log("test");
+        }
+
+
+        // 2.
+        // btn.onclick = go(); // 자바스크립트는 클릭을 안해도 이미 작동됨
+        btn2.onclick = go; // 자바스크립트에선 함수 호출시 () 소괄호를 빼야한다.
+       
+
+        // 3.
+        // 이렇게도 해도 작동된다.
+        // btn2.onclick = function(){
+        //     go();
+        // }
+
+        btn3.addEventListener("click", function() {
+            console.log("btn3");
+        })
+
+        function go() {
+            console.log("go");
+        }
+    </script>
+</body>
+</html>
