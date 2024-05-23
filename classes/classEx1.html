@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c1 {
+            border: 3px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" class="c0">
+    </div>
+    <div>
+        <input type="text" class="c0">
+    </div>
+    <div>
+        <input type="text" class="c0">
+    </div>
+    <div>
+        <input type="text" class="c0">
+    </div>
+
+    <button onclick="on()">Click</button>
+
+    <!-- input 중 내용이 있으면 그대로 내용이 없으면 빨강색 테두리로 표시 | 인풋 값이 없는거 체크 = value 값 | value =""; -->
+
+    <script>
+        const c0 = document.getElementsByClassName("c0");
+
+        
+        function on() {
+            
+            let val = "";
+
+            for(let i=0; i<c0.length; i++) {
+                if(c0[i].value == val) {
+                    // c0[i].className = "c1";
+                    c0[i].classList.add("c1");
+                    
+                }else {
+                    c0[i].className = "c0";
+                }
+            }
+            
+        }
+
+
+        //강사님 풀이
+        // function on() {
+        //     for(let i=0; i<c0.length; i++) {
+        //         if(c0[i].value == val) {
+        //             //값이 비어있다.
+        //             c0[i].classList.add("c1");
+        //         }else {
+        //             c0[i].classList.remove("c1");
+        //         }
+        //     }
+        // }
+    </script>
+</body>
+</html>
