@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="checkbox" value="1" name="ch" class="v" id="checkAll">
+    <input  onclick="on()" type="checkbox" value="1" name="ch" class="v" id="checkAll">
     <input type="checkbox" value="1" name="ch" class="v">
     <input type="checkbox" value="2" name="ch" class="v">
     <input type="checkbox" value="3" name="ch" class="v">
@@ -38,18 +38,40 @@
         // 전체 체크 | 해제 만들기
         const all = document.getElementById("checkAll");
         
-        function on() {
-            // 체크시 true | 노체크시 false 
-            if(all.checked == true) {
-                for(let i=0; i<v.length; i++) {
-                    v[i].checked = true;
-                }
-            } else {
-                for(let i=0; i<v.length; i++) {
-                    v[i].checked = false;
-                }
-            }
-        }
-        
+        // function on() {
+        //     // 체크시 true | 노체크시 false 
+        //     if(all.checked == true) {
+        //         for(let i=0; i<v.length; i++) {
+        //             v[i].checked = true;
+        //         }
+        //     } else {
+        //         for(let i=0; i<v.length; i++) {
+        //             v[i].checked = false;
+        //         }
+        //     }
+        // }
+        // 강사님 풀이1
+        // function on() {
+        //     if(all.checked) {
+        //         for(let i=0; i<v.length; i++) {
+        //             v[i].checked = true;
+        //             // v[i].checked = all.checked; // all.checked : 넘어올 때 값 자체가 true이기에 이렇게 코드를 작성해도 된다.
+        //         }
+        //     } else {
+        //         for(let i=0; i<v.length; i++) {
+        //             v[i].checked = false;
+        //             // v[i].checked = all.checked; // all.checked : 넘어올 때 값 자체가 false이기에 이렇게 코드를 작성해도 된다.
+        //         }
+        //     } 
+        // }
+
+        // 강사님 풀이2
+        function on(){
+            for(let i=0; i<v.length; i++) {
+                v[i].checked = all.checked;
+            };
+        };
+            
+
     </script>
 </html>

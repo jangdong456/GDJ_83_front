@@ -15,21 +15,23 @@
 
 
     <script>
-        // next 버튼을 클릭하면 다른 사진 보여주기 | 배열 활용하기
-
-        
+        // next 버튼을 클릭하면 다른 사진 보여주기 | 배열 활용하기        
         let ar = ["am1.jpeg","am2.jpeg","am3.jpeg","am4.jpeg","am5.jpeg"];
 
-        // img의 객체를 불러옴
         const jpg = document.getElementById("jpg");
 
         let num = 0;
         
-        
-    
         function ck() {
             num++;
-            let test = jpg.src = "/imges/"+ar[num];
+            jpg.src = "/imges/"+ar[num];
+            
+            if(num > 4) {
+                num = 0;
+                jpg.src = "/imges/"+ar[num];
+            }
+            
+
         }
 
 
