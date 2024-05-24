@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .span1 {
+            text-decoration: line-through;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <!-- TO DO List -->
+
+    <div>
+        <!-- 할일을 적고 버튼을 클릭하면 등록 -->
+        <input type="text" id="text">
+        <button id="btn1">Add</button>
+    </div>
+
+    <div id="par">
+        <div>
+            <button>휴지통</button>
+        </div>
+
+        <div>
+            <input type="checkbox" id="in1">
+            <span>강의듣기</span>
+        </div>
+    </div>
+
+    <script>
+        //조건 1. add버튼을 누르면 input 텍스트의 내용을 버튼누르면 위에 형식처럼 (input/ span태그) 태그 추가하기
+        //조건 2. 체크하면 through가 되고 -> tip : span태그에 -> 체크 안하면 through 해제  밑에참고
+        // .div {
+        //     text-decoration: line-through;
+        // }
+        //조건 3. 휴지통 버튼을 클릭하면 체크박스가 되어있는곳을 삭제
+
+        // 이미 나와있는 부모 태그를 이용해 target을 이용해서 체크하기
+        const btn1 = document.getElementById("btn1");
+        const text = document.getElementById("text");
+        const par = document.getElementById("par");
+        const in1 = document.getElementById("in1");
+
+        btn1.addEventListener("click", function(){
+            // 태그 요소 추가
+            let div1 = document.createElement("div");
+            let input = document.createElement("input");
+            let span = document.createElement("span");
+
+            //input 태그에 속성부여하기 방법 1
+            input.type = "checkbox";
+
+            // input 태그에 속성부여하기 방법 2
+            // input.setAttribute("type", "checkbox");
+
+            // input 태그에 class 이름 주는 방법
+            // input.calssList.add("이름1");
+
+            //span 태그에 id="text" 인 input 태그 값을 넣어주기
+            span.innerHTML = " "+text.value
+
+            //종속 해주기
+            par.append(div1);
+
+            // input 아래에 span태그를 줘야 input아래에 span태그가 추가됨 -> 프로그램이 순서대로 읽기 때문
+            div1.append(input);
+            div1.append(span);
+            
+            // span태그에 css 적용시키기 그리고 체크박스 클릭된 것만 적용시키기
+            // input에 조건을 걸어야 되니까 input 동일한 className 적용시켜주기
+            input.classList.add("in");
+            span.classList.add("sp");
+            
+
+            input.setAttribute("data-test", "test");
+            input.setAttribute("id", "result");
+            span.setAttribute("id", "spid1");
+            span.setAttribute("data-span", "dataSpan");
+
+        });
+    
+        //만약 input의 checkbox 가 true면 ~~실행
+        // 지금의 input이 클래스라 배열 형태이기 때문에 적용이안됨 
+        // 주체를 적용시켜야함
+        // data-* 활용하기 -> data값을 불러온다.
+
+        //지금 if문이 작동이 안되어서 data값을 부여 하려고 했음
+        // input.setAttribute("data-del");
+
+
+ 
+        par.addEventListener("click", function(e){
+
+            //클릭 되어야 할 곳의 위치 태그를 적용 시켜야 event 위임을 할수 있다
+            if(e.target.classList.contains("in")){
+                //input태그 까지 들어옴
+                let t1 = document.getElementById("result");  
+                t1.getAttribute("data-test");
+                
+                let s1 = document.getElementById("spid1");
+                
+                //만약 input 태그가 checked가 true 라면
+                if(t1.checked) {
+                    s1.classList.add("span1");
+                    console.log("들어왔냐?");
+                    // e.target.in.classList.contains("in");
+                    // css적용 시키기위해서 className 부여
+                    console.log("여기");
+                }else {
+                //여기서는 
+                console.log("실패");
+                //클래스 속성을 다시 뺀다.
+                s1.classList.add("span2");
+            }
+            }
+        });
+    
+
+
+
+
+
+        //적용할 Element 변수명.속석명 = "값" // a.src=""
+    </script>
+</body>
+</html>

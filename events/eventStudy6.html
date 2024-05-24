@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://www.naver.com" id="naver">Naver</a>
+
+    <div id="result">
+
+    </div>
+    <button id="add">add</button>
+
+    <script>
+        const add = document.getElementById("add");
+        const result = document.getElementById("result");
+
+        add.addEventListener("click", function(){
+            let i = document.createElement("input");
+            i.type = "checkbox";
+            
+            // classList 클래스 이름 여러개 넣을때 사용 | 한개도 가능
+            i.classList.add("ch");
+
+            // 알아서 요소 result 의 id값을 바로 가져와준다.
+            result.append(i);
+        });
+
+        result.addEventListener('click', function(e){
+            // 클릭칸 이벤트에 값이 클래스 이름이. ch가 맞다면 ? | true / false
+            if(e.target.classList.contains("ch")) {
+
+            }
+        });
+        
+    </script>
+    
+</body>
+</html>

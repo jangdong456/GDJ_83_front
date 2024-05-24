@@ -26,7 +26,8 @@
         <h3>4</h3>
         <button class="btns" id="4" data-del-num="4">Click</button>
     </div>
-
+    
+ 
     <script>
         //버튼을 클릭하면 div 부모 태크가 사라진다.
 
@@ -37,7 +38,7 @@
         for(let i=0; i <btns.length; i++) {
             btns[i].addEventListener("click", function(){
 
-                // this는 this.속성명 으로는 사용이 불가능하다.
+                // 밑에 코드처럼 this는 this.속성명 으로는 사용이 불가능하다.
                 // console.log(this.data-del-num);
 
                 // console.log(this.getAttribute("data-del-num"));

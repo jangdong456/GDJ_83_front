@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result {
+            width: 200px;
+            height: 100px;
+            border: 3px solid red;
+        }
+    </style>
+</head>
+<body>
+    <button class="btns">click1</button>
+    <button class="btns">click2</button>
+    <div id="result">
+        
+    </div>
+    <button id="add">Add</button>
+
+    <script>
+        // 이벤트 겹치면 자식이 먼저 실행된다.
+        const btns = document.getElementsByClassName("btns");
+        const add = document.getElementById("add");
+        const result = document.getElementById("result");
+
+        //test해보기
+        const b = document.getElementById("b");
+
+        //e : 매개변수 e 를 활용하여 어디 버튼이 눌러졌는지 알수있다. -> 어떻게 ? target 함수가 알아서 잡아줌
+        // classList 를 사용하면 배열 형식으로 불러와짐 -> 원하는 클래스가 있는지 판단할 수 있다.
+        result.addEventListener("click", function(e){ // function(e) < e : 라고 해서 이벤트 약어가 아니다. 매개변수명이라 아무렇게 지어도된다. ex) asd -> function(asd){ ~~~코드실행}
+            // 클릭하면 자식부터 먼저 타겟으로 잡힌다. 왜? js만든 개발자가 그렇게 만들어 놔서 먼저 잡히게 됨 |  예를들어서 부모와 자식이 겹친다면, 자식부터 타겟 잡힘
+            console.log(e);
+
+            //만약에 클릭했을때 btns가 있으면 true / false
+            // e.target : button element = document.getElement의 결과물과 같다.
+            if(e.target.classList.contains("btns")){
+                console.log("button click");
+                go();
+            }
+        });
+        
+        // click 버튼은 만들어지고 , click버튼을 누르면 밑에 for문에 작성한 click 콘솔이 떠야되는데 안뜸
+        // 이유는 먼저  버튼 만들어지고  만든 버튼을 클릭하게 되면 for문은 이미 실행이 됬고, 끝내기 때문에 click콘솔이 안뜸
+        // 순서
+        // 버튼생성 > for문 실행 > for문 종료 > 버튼클릭한다면 > for문 종료로 인해 실행 x
+        add.addEventListener("click", function(){
+            let b =document.createElement("button");
+            b.append("click");
+            b.className = "btns";
+            result.append(b);
+        });
+
+        // 
+        for(let i=0; i<btns.length; i++){
+            btns[i].addEventListener("click", function(){
+                console.log("click");
+            });
+        };
+
+        for(let i=0; i<btns.length; i++) {
+            btns.addEventListener("click", function(){
+                go();
+            })
+        }
+        
+        function go() {
+            console.log("같은일을 하자");
+            
+        }
+        
+    </script>
+</body>
+</html>
