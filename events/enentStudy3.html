@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg {
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="frm">
+        <input type="text" id="id1">
+        <input type="text" id="id2">
+
+        <!-- form태그 안에서만 reset(초기화) 기능이 실행된다. -->
+        <input type="reset" value="RESET">
+        <button type="reset">RESET</button>
+    </form>
+
+    <script>
+        const id1 = document.getElementById("id1");
+        const id2 = document.getElementById("id2");
+
+        // keypress : 키를 누르고 있을때 실행된다. | 특수키는 지원하지 않는다 : ctrl / alt / 한영키 등등 
+        // id1.addEventListener("keypress", function(){
+        //     console.log("keypress");
+        // });
+        
+        // 키보드 눌렀다가 띄었을때
+        id1.addEventListener("keyup", function(){
+            console.log("keyup");
+        });
+        
+        //입력 대기 상태 -> 빈칸 누를때 커서가 깜빡깜빡 거리는 ?? 그 위치에 적용
+        id1.addEventListener("focus", function(){
+          id1.classList.add("bg");  
+          console.log("focus");
+        });
+        
+        // ex) focus에서 나갈때 무언가를 해야할 때 사용한다.
+        id1.addEventListener("blur", function(){
+          id1.classList.remove("bg");  
+          
+        });
+        
+        // value가 바뀌었을때 (내용이 변경 되었을 때) 만 실행이 된다.
+        id2.addEventListener("change", function(){
+            console.log("값이 변경됨");
+        })
+
+
+
+
+    </script>
+</body>
+</html>

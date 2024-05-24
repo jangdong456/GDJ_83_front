@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 체크하면 through가 되고 체크 안하면 through 해제 */
+        /* div {
+            text-decoration: line-through;
+        } */
+    </style>
+</head>
+<body>
+    
+    <div id="di">
+        <!-- <input type="checkbox"> 바나나 -->
+    </div>
+
+ 
+    <script>
+        const ar = ['바나나','수박','참외','사과','망고'];
+
+        //배열안에 값을 꺼내서 div안에 체크박스 만들고  옆에 텍스트 띄우기
+        
+        const di = document.getElementById("di");
+       
+      
+        for(let i=0; i<ar.length; i++){
+            //Input 태그 생성
+            let s = document.createElement("input");
+            
+            // type 속성 부여
+            let att = document.createAttribute("type");
+
+            // checkbox 부여
+
+            // 적용할 Element 변수명.속성명 = "값" // a.src=""
+            // 이방식으로 적용할시 setAttributeNode(); 메소드를 적용안해도 된다.
+            s.type = "checkbox" //도 된다.
+
+            // att.value = "checkbox"
+
+
+            // input안에 있는 태그가 아니라 div안에 있는 거라 상속을 최상위로 시켜야한다.
+            
+            // 속성값을 만들어서 해당태그에 지정해 줘야한다.
+            // att.value = "값"; 으로 할시에는 밑에 코드를 작성해야한다.
+            // s.setAttributeNode();
+            
+            // div 태그에 input 태그 상속
+            di.appendChild(s);
+            di.append(ar[i]);
+
+            //append는 문자열 까지 된다.
+
+        }
+
+    
+
+
+
+  
+
+
+        
+        // 1. 태그 생성 | 2. 인풋태그에 type부여 | 3.type 값 부여 | 4. di태그에 input태그 상속 | 5. 배열 ->  contents 생성  -> "추가할 Text를 배열 인덱스로 저장" | 6.반복
+
+
+    </script>
+
+
+</body>
+</html>

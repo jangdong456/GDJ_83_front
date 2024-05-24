@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="c1" id="result1">
+        <h3>1</h3>
+        <button class="btns" id="1" data-del-num="1">Click</button>
+    </div>
+
+    <div class="c1" id="result2">
+        <h3>2</h3>
+        <button class="btns" id="2" data-del-num="2">Click</button>
+    </div>
+
+    <div class="c1" id="result3">
+        <h3>3</h3>
+        <button class="btns" id="3" data-del-num="3">Click</button>
+    </div>
+
+    <div class="c1" id="result4">
+        <h3>4</h3>
+        <button class="btns" id="4" data-del-num="4">Click</button>
+    </div>
+
+    <script>
+        //버튼을 클릭하면 div 부모 태크가 사라진다.
+
+        const btns = document.getElementsByClassName("btns");
+        const c1 = document.getElementsByClassName("c1");
+   
+        
+        for(let i=0; i <btns.length; i++) {
+            btns[i].addEventListener("click", function(){
+
+                // this는 this.속성명 으로는 사용이 불가능하다.
+                // console.log(this.data-del-num);
+
+                // console.log(this.getAttribute("data-del-num"));
+                document.getElementById("result"+this.getAttribute("data-del-num")).remove();
+                // c1[i].remove();
+                // console.log("div :",c1.length);
+                // console.log("btn :",btns.length);
+                // console.log("index :",i);
+                // console.log("===================")
+            });
+        };
+
+        // *의 의미 : 뒤에 아무렇게나 입력해서 속성명을 만들수있다.
+        // data-*
+
+
+
+    </script>
+
+</body>
+</html>

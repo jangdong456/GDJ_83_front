@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="info">
+    <button id="btn">Add</button>
+    <ul id="result">
+
+    </ul>
+
+    <div id="result2">
+        <!-- <div>
+            <input type="file"> 
+            <span>X</span>
+        </div> -->
+    </div>
+    <button id="btn2" >Add2</button>
+
+    <script>
+        const info = document.getElementById("info");
+        const btn = document.getElementById("btn");
+        const result = document.getElementById("result");
+
+        btn.addEventListener("click", function(){
+            let v = info.value //asd
+            
+            //<li></li>
+            let li = document.createElement("li");
+
+            //contents 생성  -> "추가할 Text"
+            let c = document.createTextNode(v);
+
+            li.appendChild(c); 
+
+            //어떠한 곳에다가 추가 함 append();
+            result.append(li);
+        })
+        const btn2 = document.getElementById("btn2");
+        const result2 = document.getElementById("result2");
+
+        btn2.addEventListener("click", function(){
+            let d = document.createElement("div");
+            let i = document.createElement("input");
+            let a = document.createAttribute("type");
+            
+            //span
+            let s = document.createElement("span");
+            let t = document.createTextNode("x");
+
+            
+            a.value = "file"
+            // input type = "file"
+            i.setAttributeNode(a);
+            
+            
+            s.appendChild(t);
+            d.appendChild(i);
+            d.appendChild(s);
+
+            result2.append(d);
+            result2.append(s);
+            
+        })
+        
+    </script>
+</body>
+</html>
